@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trendzz – Fashion for Everyone</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ===== TOP HEADER ===== -->
+<header class="top-header">
+  <div class="header-inner">
+    <!-- Logo -->
+    <a href="#" class="logo" onclick="resetFilters()">
+      <span class="logo-text">trendzz</span>
+    </a>
+
+    <!-- Nav Categories -->
+    <nav class="main-nav">
+      <button class="nav-btn active" onclick="filterCat('All', this)">MEN</button>
+      <button class="nav-btn" onclick="filterCat('Women', this)">WOMEN</button>
+      <button class="nav-btn" onclick="filterCat('Kids', this)">KIDS</button>
+      <button class="nav-btn" onclick="filterCat('Beauty', this)">BEAUTY</button>
+      <button class="nav-btn" onclick="filterCat('Home', this)">HOME</button>
+    </nav>
+
+    <!-- Search -->
+    <div class="search-box">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="search" placeholder="Search for products, brands and more" oninput="renderProducts()" />
+    </div>
+
+    <!-- Icons -->
+    <div class="header-icons">
+      <div class="icon-item">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Profile</span>
+      </div>
+      <div class="icon-item" onclick="showWishlist()">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Wishlist</span>
+        <span class="badge" id="wishlist-count">0</span>
+      </div>
+      <div class="icon-item" onclick="goToCart()">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span>Bag</span>
+        <span class="badge" id="cart-count">0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="hero">
+  <div class="hero-slide active">
+    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=80" alt="Fashion Sale" />
+    <div class="hero-content">
+      <p class="hero-sub">END OF SEASON SALE</p>
+      <h2 class="hero-title">UP TO 80% OFF</h2>
+      <p class="hero-desc">On Top Fashion Brands</p>
+      <button class="hero-btn" onclick="resetFilters()">SHOP NOW</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATEGORY STRIP ===== -->
+<section class="cat-strip">
+  <div class="cat-strip-inner">
+    <div class="cat-card" onclick="filterTag('Kurta')">
+      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=120&q=80" alt="Kurtas" />
+      <span>Kurtas</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('Dress')">
+      <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=120&q=80" alt="Dresses" />
+      <span>Dresses</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('Jeans')">
+      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=120&q=80" alt="Jeans" />
+      <span>Jeans</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('Sneakers')">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&q=80" alt="Sneakers" />
+      <span>Sneakers</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('Jacket')">
+      <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=120&q=80" alt="Jackets" />
+      <span>Jackets</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('Saree')">
+      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=120&q=80" alt="Sarees" />
+      <span>Sarees</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('T-Shirt')">
+      <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=120&q=80" alt="T-Shirts" />
+      <span>T-Shirts</span>
+    </div>
+    <div class="cat-card" onclick="filterTag('Watch')">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=120&q=80" alt="Watches" />
+      <span>Watches</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SORT / FILTER BAR ===== -->
+<div class="filter-bar">
+  <span class="filter-label" id="filter-title">All Products</span>
+  <div class="filter-controls">
+    <select id="sort" onchange="renderProducts()">
+      <option value="">Sort By: Relevance</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="discount">Best Discount</option>
+    </select>
+    <button class="filter-chip" onclick="filterCatBtn('Men')">Men</button>
+    <button class="filter-chip" onclick="filterCatBtn('Women')">Women</button>
+    <button class="filter-chip" onclick="filterCatBtn('Kids')">Kids</button>
+    <button class="filter-chip" onclick="resetFilters()">Clear</button>
+  </div>
+</div>
+
+<!-- ===== PRODUCTS GRID ===== -->
+<section class="products-section">
+  <div class="products-grid" id="products"></div>
+</section>
+
+<!-- ===== WHATSAPP MODAL ===== -->
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon">🛍️</div>
+    <h3>Order via WhatsApp!</h3>
+    <p>You'll be redirected to WhatsApp to complete your order with our fashion expert.</p>
+    <div class="modal-product" id="modal-product-name"></div>
+    <a id="whatsapp-link" href="#" target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.479 2 2 6.479 2 12.004c0 1.857.484 3.601 1.332 5.115L2 22l5.032-1.317A9.96 9.96 0 0 0 12.004 22C17.527 22 22 17.525 22 12.004 22 6.479 17.527 2 12.004 2z" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+      Chat on WhatsApp
+    </a>
+    <p class="modal-note">Our team at <strong>+91 97722 92121</strong> will assist you</p>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>ONLINE SHOPPING</h4>
+      <ul><li>Men</li><li>Women</li><li>Kids</li><li>Home & Living</li><li>Beauty</li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>CUSTOMER POLICIES</h4>
+      <ul><li>Contact Us</li><li>FAQ</li><li>Return Policy</li><li>Terms of Use</li><li>Privacy Policy</li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>EXPERIENCE TRENDZZ APP</h4>
+      <p style="font-size:13px;color:#777">Faster checkout, order tracking and exclusive app-only deals</p>
+    </div>
+    <div class="footer-col">
+      <h4>KEEP IN TOUCH</h4>
+      <div class="social-links">
+        <span>📘 Facebook</span>
+        <span>📸 Instagram</span>
+        <span>🐦 Twitter</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 <strong>Trendzz Fashion Pvt. Ltd.</strong> — Inspired by Myntra. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
