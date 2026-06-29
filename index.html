@@ -20,12 +20,9 @@
 
     <!-- Nav Categories -->
     <nav class="main-nav">
-      <button class="nav-btn active" onclick="filterCat('All', this)">MEN</button>
-      <button class="nav-btn" onclick="filterCat('Women', this)">WOMEN</button>
-      <button class="nav-btn" onclick="filterCat('Kids', this)">KIDS</button>
-      <button class="nav-btn" onclick="filterCat('Beauty', this)">BEAUTY</button>
-      <button class="nav-btn" onclick="filterCat('Home', this)">HOME</button>
-    </nav>
+      <button class="nav-btn" onclick="filterCat('Men', this)">MEN</button>
+      <button class="nav-btn active" onclick="filterCat('Women', this)">WOMEN</button>
+</nav>
 
     <!-- Search -->
     <div class="search-box">
@@ -35,10 +32,6 @@
 
     <!-- Icons -->
     <div class="header-icons">
-      <div class="icon-item">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <span>Profile</span>
-      </div>
       <div class="icon-item" onclick="showWishlist()">
         <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         <span>Wishlist</span>
@@ -52,57 +45,6 @@
     </div>
   </div>
 </header>
-
-<!-- ===== HERO BANNER ===== -->
-<section class="hero">
-  <div class="hero-slide active">
-    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=80" alt="Fashion Sale" />
-    <div class="hero-content">
-      <p class="hero-sub">END OF SEASON SALE</p>
-      <h2 class="hero-title">UP TO 80% OFF</h2>
-      <p class="hero-desc">On Top Fashion Brands</p>
-      <button class="hero-btn" onclick="resetFilters()">SHOP NOW</button>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CATEGORY STRIP ===== -->
-<section class="cat-strip">
-  <div class="cat-strip-inner">
-    <div class="cat-card" onclick="filterTag('Kurta')">
-      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=120&q=80" alt="Kurtas" />
-      <span>Kurtas</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('Dress')">
-      <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=120&q=80" alt="Dresses" />
-      <span>Dresses</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('Jeans')">
-      <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=120&q=80" alt="Jeans" />
-      <span>Jeans</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('Sneakers')">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=120&q=80" alt="Sneakers" />
-      <span>Sneakers</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('Jacket')">
-      <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=120&q=80" alt="Jackets" />
-      <span>Jackets</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('Saree')">
-      <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=120&q=80" alt="Sarees" />
-      <span>Sarees</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('T-Shirt')">
-      <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=120&q=80" alt="T-Shirts" />
-      <span>T-Shirts</span>
-    </div>
-    <div class="cat-card" onclick="filterTag('Watch')">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=120&q=80" alt="Watches" />
-      <span>Watches</span>
-    </div>
-  </div>
-</section>
 
 <!-- ===== SORT / FILTER BAR ===== -->
 <div class="filter-bar">
@@ -171,6 +113,7 @@
   </div>
 </footer>
 
+<script src="js/data.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

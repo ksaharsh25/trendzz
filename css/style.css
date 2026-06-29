@@ -307,6 +307,25 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
   border-radius: 2px;
 }
 
+.img-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  z-index: 2;
+}
+.img-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+  border: 1px solid rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.img-dot.active { background: #ff3f6c; transform: scale(1.2); }
+
 .card-info { padding: 12px; }
 .card-brand { font-size: 13px; font-weight: 700; color: #282c3f; margin-bottom: 3px; }
 .card-name { font-size: 13px; color: #535665; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
